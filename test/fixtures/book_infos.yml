@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  price: 1.5
+  publish_date: 2016-09-07
+  book_id: 
+
+two:
+  price: 1.5
+  publish_date: 2016-09-07
+  book_id: 
