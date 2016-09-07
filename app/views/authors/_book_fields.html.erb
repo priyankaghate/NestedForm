@@ -1,0 +1,12 @@
+<p class="fields">
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+
+	<%= f.fields_for :book_info do |info| %>
+	  <%= render 'book_info_fields', :f=>info %>
+
+	<%end%>
+
+	<%#=f.hidden_field '_destroy', id: 'h'%>
+	<%=link_to 'Remove','#', id: 'remove_link', remote: true %>
+</p>

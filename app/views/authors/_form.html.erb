@@ -8,17 +8,37 @@
         <li><%= message %></li>
       <% end %>
       </ul>
+
     </div>
   <% end %>
 
   <div class="field">
-    <%= f.label :first_name %><br>
+    <%= f.label :first_name %>
     <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
+    <%= f.label :last_name %>
     <%= f.text_field :last_name %>
   </div>
+
+  <%num=0%>
+  <%= f.fields_for :books do |b| %>
+   
+    <p class="fields", id="book_field">
+       <strong>Book <%= num+=1 %></strong>
+      <%= b.label :title %>
+      <%= b.text_field :title %>
+
+      <%= b.fields_for :book_info do |info| %>
+        <%= info.label :price %>
+        <%= info.text_field :price %>
+        <%= info.label :publish_date %>
+        <%= info.date_select :publish_date %>
+      <%end%>
+
+      <%=f.hidden_field '_destroy'%>
+      <%=link_to 'Remove', '#', id: 'remove_link', remote: true %>
+    </p>
+  <%end%>
+
   <div class="actions">
     <%= f.submit %>
   </div>

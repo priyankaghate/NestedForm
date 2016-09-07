@@ -15,10 +15,16 @@ class AuthorsController < ApplicationController
   # GET /authors/new
   def new
     @author = Author.new
+    3.times do 
+      book=@author.books.build
+      book.build_book_info
+    end 
   end
 
   # GET /authors/1/edit
   def edit
+      book=@author.books.build
+      book.build_book_info
   end
 
   # POST /authors
@@ -69,6 +75,6 @@ class AuthorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def author_params
-      params.require(:author).permit(:first_name, :last_name)
+      params.require(:author).permit(:first_name, :last_name, books_attributes: [:id, :title, :_destroy, book_info_attributes: [:_destroy, :id, :price, :publish_date]])
     end
 end

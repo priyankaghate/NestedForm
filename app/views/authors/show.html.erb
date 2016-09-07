@@ -1,14 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>First name:</strong>
-  <%= @author.first_name %>
+  <strong>Author:</strong>
+  <%= @author.first_name %> <%= @author.last_name %>
 </p>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @author.last_name %>
-</p>
+<%for book in @author.books%>
+	<p>
+	  <%#if !book.exists?(book.book_info) %>
+		<strong>Title: </strong><%=book.title%><br>
+		<strong>Published On: </strong><%=book.book_info.publish_date %><br>
+		<strong>Price: </strong><%=book.book_info.price %> Rs<br>
+	  <%#end%>
+	</p>
+<%end%>
 
 <%= link_to 'Edit', edit_author_path(@author) %> |
 <%= link_to 'Back', authors_path %>

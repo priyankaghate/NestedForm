@@ -11,6 +11,25 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function()
+{
+	
+	//$('#book_fields').hide()
+	/*$('#remove_link').click(function()
+	{
+		$(this).hide();
+	});
+	*/
+	
+	$("p").on("click", function(){
+
+    	$(this).hide();
+	});
+
+})
+	
