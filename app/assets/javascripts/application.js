@@ -16,20 +16,17 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function()
-{
-	
-	//$('#book_fields').hide()
-	/*$('#remove_link').click(function()
-	{
-		$(this).hide();
-	});
-	*/
-	
-	$("p").on("click", function(){
 
-    	$(this).hide();
-	});
 
-})
-	
+function add_fields(link, association, content) {
+		var new_id = new Date().getTime();
+		var regexp = new RegExp("new_" + association, "g")
+		$(link).before(content.replace(regexp, new_id))
+		
+		/*
+		$(link).before().insert({
+		  before: content.replace(regexp, new_id)
+		});
+		*/
+}
+
